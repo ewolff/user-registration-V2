@@ -16,48 +16,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include_recipe "java::#{node["java"]["install_flavor"]}"
-
-current_java_version_pattern = (node.java.install_flavor == 'sun') ? /Java HotSpot\(TM\)/ : /^OpenJDK/
-
-# force ohai to run and pick up new languages.java data
-ruby_block "reload_ohai" do
-  block do
-    o = Ohai::System.new
-    o.all_plugins
-    node.automatic_attrs.merge! o.data
-  end
-  action :nothing
-end
-
-execute "update-java-alternatives" do
-  command "update-java-alternatives --jre -s java-1.7.0-#{node["java"]["install_flavor"]}"
-  returns 0
-  only_if do platform?("ubuntu", "debian") end
-  action :nothing
-  notifies :create, resources(:ruby_block => "reload_ohai")
-end
+node.run_state[:java_pkgs] = ["openjdk-7-jre","default-jre"] 
 
 node.run_state[:java_pkgs].each do |pkg|
   package pkg do
     action :install
-    if platform?("ubuntu", "debian")
-      if node.java.install_flavor == "sun"
-        response_file "java.seed"
-      end
-      notifies :run, resources(:execute => "update-java-alternatives"), :delayed
-    end
   end
 end
 
-# re-run update-java-alternatives if our java flavor changes
-if node.languages.attribute?("java")
-  unless node.languages.java.hotspot.name.match(current_java_version_pattern)
-    log "Java install_flavor has changed, re-running 'update-java-alternatives'" do
-      level :info
-      notifies :run, resources(:execute => "update-java-alternatives"), :delayed
-    end
-  end
-end
-
-node.run_state.delete(:java_pkgs)

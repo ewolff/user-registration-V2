@@ -19,20 +19,8 @@
 
 include_recipe "java"
 
-case node.platform
-when "centos","redhat","fedora"
-  include_recipe "jpackage"
-end
+tomcat_pkgs =  ["tomcat7","tomcat7-admin"]
 
-tomcat_pkgs = value_for_platform(
-  ["debian","ubuntu"] => {
-    "default" => ["tomcat7","tomcat7-admin"]
-  },
-  ["centos","redhat","fedora"] => {
-    "default" => ["tomcat7","tomcat7-admin-webapps"]
-  },
-  "default" => ["tomcat7"]
-)
 tomcat_pkgs.each do |pkg|
   package pkg do
     action :install
@@ -41,32 +29,16 @@ end
 
 service "tomcat" do
   service_name "tomcat7"
-  case node["platform"]
-  when "centos","redhat","fedora"
-    supports :restart => true, :status => true
-  when "debian","ubuntu"
-    supports :restart => true, :reload => true, :status => true
-  end
+  supports :restart => true, :reload => true, :status => true
   action [:enable, :start]
 end
 
-case node["platform"]
-when "centos","redhat","fedora"
-  template "/etc/sysconfig/tomcat7" do
-    source "sysconfig_tomcat7.erb"
-    owner "root"
-    group "root"
-    mode "0644"
-    notifies :restart, resources(:service => "tomcat")
-  end
-else  
-  template "/etc/default/tomcat7" do
-    source "default_tomcat7.erb"
-    owner "root"
-    group "root"
-    mode "0644"
-    notifies :restart, resources(:service => "tomcat")
-  end
+template "/etc/default/tomcat7" do
+  source "default_tomcat7.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+  notifies :restart, resources(:service => "tomcat")
 end
 
 template "/etc/tomcat7/server.xml" do
