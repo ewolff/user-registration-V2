@@ -12,11 +12,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Configuration
 public class RegistrationConfiguration {
 	
-	@Autowired
-	private DataSource dataSource;
-	
 	@Bean
-	public JdbcTemplate jdbcTemplate() {
+	public JdbcTemplate jdbcTemplate(DataSource dataSource) {
 		return new JdbcTemplate(dataSource);
 	}
 	
