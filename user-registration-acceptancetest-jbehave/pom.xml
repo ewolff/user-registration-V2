@@ -5,7 +5,7 @@
 	<artifactId>user-registration-acceptancetest-jbehave</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<jbehave.version>3.9</jbehave.version>
+		<jbehave.version>3.9.5</jbehave.version>
 	</properties>
 
 	<parent>
@@ -37,7 +37,7 @@
 			<plugin>
 				<groupId>org.jbehave</groupId>
 				<artifactId>jbehave-maven-plugin</artifactId>
-				<version>3.9</version>
+				<version>3.9.5</version>
 				<dependencies>
 					<dependency>
 						<groupId>log4j</groupId>
