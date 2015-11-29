@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-node.run_state[:java_pkgs] = ["openjdk-7-jre","default-jre"] 
+node.run_state[:java_pkgs] = ["openjdk-8-jre","default-jre"] 
 
 node.run_state[:java_pkgs].each do |pkg|
   package pkg do
