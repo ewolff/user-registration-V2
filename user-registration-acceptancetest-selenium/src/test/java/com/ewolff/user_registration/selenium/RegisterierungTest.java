@@ -2,9 +2,7 @@ package com.ewolff.user_registration.selenium;
 
 import static org.junit.Assert.assertTrue;
 
-import java.net.URL;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
@@ -17,7 +15,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.springframework.boot.SpringApplication;
-import org.springframework.web.client.RestTemplate;
 
 import com.ewolff.user_registration.RegistrationApplication;
 
