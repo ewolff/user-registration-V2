@@ -23,7 +23,7 @@ The result should be:
 
 - A new VirtualBox VM is fired up by Vagrant
 - Docker is installed in the VM
-- You can access the application at http://localhost:8081/
-- You can access Kibana  at http://localhost:8080/
+- You can access the application at http://localhost:8080/
+- You can access Kibana  at http://localhost:5601/
 - Elasticsearch is exposed at port 9200.
 
