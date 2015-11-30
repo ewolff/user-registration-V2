@@ -1,4 +1,4 @@
-FROM java
+FROM ewolff/docker-java
 RUN apk add --update wget ca-certificates
 RUN apk add --update sudo
 RUN adduser -D elasticsearch

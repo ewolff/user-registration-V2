@@ -1,4 +1,4 @@
-FROM java
+FROM ewolff/docker-java
 RUN apk add --update wget ca-certificates
 RUN apk add --update bash
 RUN wget -nv "https://download.elastic.co/logstash/logstash/logstash-2.1.0.tar.gz" && \

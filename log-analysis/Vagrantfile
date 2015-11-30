@@ -10,7 +10,6 @@ Vagrant.configure("2") do |config|
   end
   
   config.vm.provision "docker" do |d|
-    d.build_image "--tag=java /vagrant/java"
     d.build_image "--tag=kibana /vagrant/kibana"
     d.build_image "--tag=elasticsearch /vagrant/elasticsearch"
     d.build_image "--tag=logstash /vagrant/logstash"
