@@ -1,4 +1,6 @@
-FROM ubuntu-update
+FROM ubuntu:15.04
+RUN apt-get update ; apt-get dist-upgrade -y -qq 
+RUN apt-get install -y -qq wget
 RUN apt-get install -y -qq graphite-web
 COPY local_settings.py /etc/graphite
 RUN graphite-manage syncdb --noinput
