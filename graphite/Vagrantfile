@@ -3,8 +3,6 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 8082, host: 8082
   config.vm.network "forwarded_port", guest: 8083, host: 8083
   config.vm.network "forwarded_port", guest: 2003, host: 2003
-  config.vm.synced_folder "../user-registration-application/target", "/target", create: true
-
 
   config.vm.provision "docker" do |d|
     d.build_image "--tag=ubuntu-update /vagrant/ubuntu-update"
@@ -18,7 +16,7 @@ Vagrant.configure("2") do |config|
     d.run "graphite-web",
       args: "-p 8082:80  --volumes-from carbon"
     d.run "user-registration",
-      args: "-p 8083:8080 -v /target:/target --link carbon:carbon"
+      args: "-p 8083:8080 --link carbon:carbon"
   end
 
 end
