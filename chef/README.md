@@ -15,19 +15,19 @@ solo. The script `install.sh` does that.
 
 The web application is located in `cookbooks/webapp/files/default` .
 
-Look at roles/tomcatserver.json to figure out which recipes are run
+Look at `roles/tomcatserver.json` to figure out which recipes are run
 and how they are customized. The cookbooks are taken from the
 Opscode's Open Source repository.
 
-The directory `.chef` contains a simple `knife.rb` that must be adjusted
-to be used with knife. Then the application can be installed in the
-Amazon EC2 cloud.
+The directory `.chef` contains a simple `knife.rb` that must be
+adjusted to be used with knife - see the comments in the file. Then
+the application can be installed in the Amazon EC2 cloud.
 
 To use it:
-* Install Knife - see http://docs.opscode.com/install_workstation.html
+* Install Knife - see https://downloads.chef.io/chef-dk/
 * Install the EC2 plug in - see
-  http://docs.opscode.com/plugin_knife_ec2.html
-* Upload the cookbooks using  `knife cookbook upload –a`
+  https://github.com/chef/knife-ec2#installation
+* Upload the cookbooks using  `knife cookbook upload -a`
 * Upload the role with `knife role from file roles/tomcatserver.json`
 * Now create a new server with   `knife ec2 server create -r
-  'role[tomcatserver]' -i .chef/AmazonPEM.pem -r 'role[tomcatserver]'`
+  'role[tomcatserver]' --identity-file ~/.ssh/<your-key>.pem`

@@ -11,23 +11,24 @@ knife[:aws_secret_access_key]  = ENV['AWS_SECRET_ACCESS_KEY']
 ## AWS ACCESS KEY and ID - get it from https://portal.aws.amazon.com/gp/aws/securityCredentials
 ## and set it as an environment variable
 
-knife[:aws_ssh_key_id] = 'EU-WEST-EW'
-## ssh_key Get it from https://console.aws.amazon.com/ec2/v2/home?region=eu-west-1#KeyPairs: 
+knife[:ssh_key_name] = 'EU-WEST-EW'
+## ssh_key Get it from https://console.aws.amazon.com/ec2/v2/home?region=eu-west-1#KeyPairs:
+## Should be saved in ~/.sshd
 knife[:ssh_user]       = 'ubuntu'
 knife[:region]         = 'eu-west-1'
 knife[:flavor]         = 't1.micro'
 
-knife[:image]          = 'ami-096cbd7e'
-## this is an Ubuntu 14.04 LTS image
- knife[:groups]        = 'default'
+knife[:image]          = 'ami-25e44256'
+## this is an Ubuntu 15.04 LTS image
+knife[:groups]        = 'default'
 ## security group - create it at https://console.aws.amazon.com/ec2/home?region=eu-west-1#s=SecurityGroups
-## ensure port 8080 ist made availabele
+## ensure port 8080 ist made available
 
 ###### Hosted Chef
 
 client_key               "#{current_dir}/ewolff.pem"
 ## assure the client key is in the current directory
-## get it from https://www.getchef.com/account/password
+## get it from https://manage.chef.io/
 validation_client_name   'test-org42-validator'
 ## change validation_client-name to <your-organization>-validator
 validation_key           "#{current_dir}/test-org42-validator.pem"
