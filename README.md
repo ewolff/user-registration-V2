@@ -34,10 +34,11 @@ As part of the Maven build the following projects are built:
 Additionally to these projects built by Maven additional projects are provided:
 
 - The subdir `docker` contains a setup to install the application in a
-  Docker container in a Vagrant box. Docker is a lightweight approach
+  Docker container in a Vagrant box or in a Docker environment using
+  Docker Machine. Docker is a lightweight approach
   that uses Linux Containers to provide an easy way to install
   applications in their own independent environment  - almost like
-  virtual machines. Vagrant makes using such technologies much easier.
+  virtual machines.
 - Based on this setup the subdir `graphite` contains a setup to run
   the application and have the monitoring information available
   through graphite.
@@ -48,10 +49,9 @@ Additionally to these projects built by Maven additional projects are provided:
  - In the subdir `shell` you can find an example how the application
    can be provisioned using a simple shell script.
    
-
 Please note that you need to execute the Maven build before you can
 run these additional projects. You will find more information about
-the projects in the README.md file in the corresponding subdir.
+the projects in the README.md file in the corresponding subdirectory.
 
 The code is provided under Apache 2.0 license - see the file LICENSE
 in this dir.

@@ -35,12 +35,12 @@ Zusätzlich zu diesen Maven-Projekten gibt es noch einige weitere
 Projekte:
 
 - Das Unterverzeichnis `docker` enthält ein Setup, um die Anwendung in
-  einem Docker-Container innerhalb einer Vagrant-Box zu
+  einem Docker-Container innerhalb einer Vagrant-Box oder einer
+  Docker-Machine-Umgebung zu
   installieren. Docker ist ein leichtgewichtiger Ansatz, der Linux
   Container nutzt, um Anwendungen in einer eigenen Umgebung zu
   installieren. Diese Umgebungen sind fast gleichwertig mit virtuellen
-  Maschinen. Vagrant macht das Nutzen dieser Technologien wesentlich
-  einfacher.
+  Maschinen.
 - Das Verzeichnis `graphite` enthält ein Setup, um die Anwendung
   ablaufen zu lassen und mit Hilfe von Graphite die
   Monitoring-Informationen anzuzeigen.
