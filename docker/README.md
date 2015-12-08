@@ -34,8 +34,6 @@ Compose can use Docker as if it was running on a local machine.
 To run:
 
 - Install Virtual Box from https://www.virtualbox.org/wiki/Downloads
-- Install Docker Compose, see
-https://docs.docker.com/compose/#installation-and-set-up
 - Install Docker, see https://docs.docker.com/installation/
 - Install Docker Machine, see https://docs.docker.com/machine/#installation
 - Execute `docker-machine create  --virtualbox-memory "4096" --driver
@@ -46,13 +44,16 @@ https://docs.docker.com/compose/#installation-and-set-up
     Powershell) /  `docker-machine.exe env --shell cmd dev` (Windows,
     cmd.exe). Now the docker tool will use the newly created virtual
     machine as environment.
-- Change to the directory this directory and run `docker-compose
-  build`followed by `docker-compose up -d`.
+- Change to the directory this directory and run
+  - `docker build --tag=java java`
+  - `docker build --tag=user-registration user-registration`
+  - `docker run -p 8080:8080 user-registration docker run -p 8080:8080
+    -d user-registration`
 
 The result should be:
 
 - A new VirtualBox VM with a Docker installation
-- The application running on the VM.
+- The application running on the VM
 
 You can find the IP adress of the machine using `docker-machine ip
 dev` . Tomcat is available at port 8080.

@@ -44,11 +44,15 @@ https://docs.docker.com/machine/#installation
     `docker-machine.exe env --shell powershell dev` (Windows,
     Powershell) /  `docker-machine.exe env --shell cmd dev` (Windows,
     cmd.exe) aus. Das docker Kommando nutzt nun die neue virtuelle Maschine als Umgebung.
- - Führe im dem Verzeichnis, das auch das LIESMICH.md enthält, das Kommando `docker-compose
-   build` aus und dann `docker-compose up -d`. 
+- Führe im dem Verzeichnis, das auch das LIESMICH.md enthält, folgende
+Kommandos aus:
+  - `docker build --tag=java java`
+  - `docker build --tag=user-registration user-registration`
+  - `docker run -p 8080:8080 -d user-registration`
 
 Das Ergebnis:
 
-- Docker Compose erzeugt die Docker Images und startet sie.
-- Find mit `docker-machine ip dev`die IP address der virtuellen Maschine
+- Find mit `docker-machine ip dev`die IP address der virtuellen
+Maschine
+- Dort steht unter Port 8080 die Anwendung bereit.
 - Nutze `docker-machine rm dev`, um die virtuelle Maschine wieder zu zerstören.
