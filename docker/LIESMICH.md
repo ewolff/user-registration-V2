@@ -31,11 +31,9 @@ Container laufen können.
 
 Um das Beispiel ablaufen zu lassen:
 
-- Installiere Docker Compose, siehe
-https://docs.docker.com/compose/#installation-and-set-up
 - Installiere Docker Machine, siehe
 https://docs.docker.com/machine/#installation
-- Install Docker, see https://docs.docker.com/installation/
+- Installiere Docker, see https://docs.docker.com/installation/
 - Installiere Virtual Box von https://www.virtualbox.org/wiki/Downloads
 - Führe `docker-machine create  --virtualbox-memory "4096" --driver
   virtualbox dev` aus. Das erzeugt eine neue Umgebung names`dev`mit Docker
