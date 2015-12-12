@@ -1,4 +1,4 @@
-root = '/home/ubuntu/JavaChefVagrantEC2'
+root = '/home/ubuntu/user-registration-V2/chef/'
  
 file_cache_path root
 cookbook_path root + '/cookbooks'
