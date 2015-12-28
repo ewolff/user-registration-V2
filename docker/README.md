@@ -45,8 +45,8 @@ To run:
     cmd.exe). Now the docker tool will use the newly created virtual
     machine as environment.
 - Change to the directory this directory and run
-  - `docker build --tag=java java`
-  - `docker build --tag=user-registration user-registration`
+  - `docker build -t java java`
+  - `docker build -t user-registration user-registration`
   - `docker run -p 8080:8080 user-registration docker run -p 8080:8080
     -d user-registration`
 

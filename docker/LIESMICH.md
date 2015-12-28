@@ -44,8 +44,8 @@ https://docs.docker.com/machine/#installation
     cmd.exe) aus. Das docker Kommando nutzt nun die neue virtuelle Maschine als Umgebung.
 - Führe im dem Verzeichnis, das auch das LIESMICH.md enthält, folgende
 Kommandos aus:
-  - `docker build --tag=java java`
-  - `docker build --tag=user-registration user-registration`
+  - `docker build -t java java`
+  - `docker build -t user-registration user-registration`
   - `docker run -p 8080:8080 -d user-registration`
 
 Das Ergebnis:
