@@ -7,8 +7,6 @@ laufen soll. Es ist eine Basis für eigene Experimente. Es dient als
 Beispiel für das
 [Continuous Delivery Buch](https://bit.ly/CD-Buch-Amzn) .
 
-Die [Errata](Errata.md) sind ebenfalls in diesem Projekt enthalten.
-
 Die Anwendung ist in Java geschrieben und nutzt Spring Boot. Um sie zu
 kompilieren und alle Tests auszuführen:
 
