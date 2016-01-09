@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   end    
   config.vm.provision "docker", run: "always" do |d|    
     d.run "user-registration",
-      args: "-p 8080:8080 -v /target:/target -v /log:/log"
+      args: "-p 8080:8080 -v /log:/log"
   end
 
 end
