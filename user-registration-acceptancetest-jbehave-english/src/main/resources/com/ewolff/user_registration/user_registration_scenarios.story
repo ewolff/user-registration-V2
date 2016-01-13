@@ -8,7 +8,7 @@ Scenario: User registers successfully
 
 Given a new user with email eberhard.wolff@gmail.com firstname Eberhard name Wolff
 When the user registers
-Then a customer with email eberhard.wolff@gmail.com should exist
+Then a user with email eberhard.wolff@gmail.com should exist
 And no error should be reported
 
 Scenario: Invalid email 
@@ -17,7 +17,7 @@ Given a new user with email HURZ firstname Eberhard name Wolff
 When the user registers
 Then an error should be reported
 
-Scenario: Only one customer with an email
+Scenario: Only one user with an email
 
 Given a new user with email eberhard.wolff@gmail.com firstname Eberhard name Wolff
 And another user with email eberhard.wolff@gmail.com firstname Bill name Gates
@@ -30,4 +30,4 @@ Scenario: User does not exist after deletion
 Given a new user with email eberhard.wolff@gmail.com firstname Eberhard name Wolff
 When the user registers
 And the user is deleted
-Then no customer with email eberhard.wolff@gmail.com should exist
+Then no user with email eberhard.wolff@gmail.com should exist

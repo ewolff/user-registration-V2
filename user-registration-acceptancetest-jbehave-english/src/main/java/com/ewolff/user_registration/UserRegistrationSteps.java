@@ -49,7 +49,7 @@ public class UserRegistrationSteps extends Embedder {
 		user = new User(firstname, name, email);
 	}
 
-	@Given("another user with email $email firstname $firstname Name $name")
+	@Given("another user with email $email firstname $firstname name $name")
 	public void givenAnotherUser(String email, String firstname, String name) {
 		anotherUser = new User(firstname, name, email);
 	}
@@ -78,12 +78,12 @@ public class UserRegistrationSteps extends Embedder {
 		registrationService.unregister(user.getEmail());
 	}
 
-	@Then("a customer with email $email should exist")
+	@Then("a user with email $email should exist")
 	public void exists(String email) {
 		assertNotNull(registrationService.getByEMail(email));
 	}
 
-	@Then("no customer with email $email should exist")
+	@Then("no user with email $email should exist")
 	public void doesNotExist(String email) {
 		assertNull(registrationService.getByEMail(email));
 	}
