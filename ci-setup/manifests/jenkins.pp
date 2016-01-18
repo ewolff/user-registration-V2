@@ -1,6 +1,7 @@
 # setup jenkins
 class { 'jenkins' :
-  config_hash => {
+  install_java => false,
+  config_hash  => {
     'HTTP_PORT' => { 'value' => '9191' }
   }
 }
@@ -20,7 +21,10 @@ $plugins = [
   'monitoring',
   'ws-cleanup',
   'envinject',
-  'sonar'
+  'sonar',
+  'clone-workspace-scm',
+  'scm-sync-configuration',
+  'job-dsl'
 ]
 
 jenkins::plugin { $plugins : }

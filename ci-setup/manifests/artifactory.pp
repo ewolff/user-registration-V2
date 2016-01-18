@@ -1,5 +1,5 @@
 class { 'artifactory::config' :
-  version       => '3.3.0',
+  version       => '4.4.0',
   user          => 'artifactory',
   group         => 'artifactory',
   port          => 9292,
