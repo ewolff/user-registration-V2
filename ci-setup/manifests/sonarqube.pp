@@ -26,9 +26,9 @@ class { "mysql::server" :
   }
 }
 
-# install SonarQube 4.4
+# install SonarQube
 class { 'sonarqube' :
-  version => '4.4',
+  version => '5.1.2',
   port    => '9393',
   jdbc    => {
     url       => 'jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true',
