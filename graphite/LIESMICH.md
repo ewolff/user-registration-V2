@@ -59,6 +59,6 @@ Das Ergebnis:
 - Find mit `docker-machine ip dev`die IP address der virtuellen
 Maschine
 - Dort steht unter Port 8083 die Anwendung bereit.
-- Graphite steht unter Port 808e die Anwendung bereit.
+- Graphite steht unter Port 8082 bereit.
 - Der Port zur Ablage von Daten in Graphite ist 2023.
 - Nutze `docker-machine rm dev`, um die virtuelle Maschine wieder zu zerstören.
