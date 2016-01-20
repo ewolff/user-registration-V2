@@ -16,7 +16,7 @@ To run:
   http://docs.vagrantup.com/v2/installation/index.html
 - Install Virtual Box from https://www.virtualbox.org/wiki/Downloads
 - Go to parent directory and run `mvn install` there
-- Change to the directoriy containing this README.MD and run `vagrant
+- Change to the directory containing this README.MD and run `vagrant
    up`
 
 The result should be:
