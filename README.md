@@ -7,7 +7,7 @@ This is an example that shows basic technical features
 for an application that should run in a Continuous Delivery
 Pipeline. The focus is to provide a playground that you can build your
 own experiments on. Orignally it was intended as an example for the [German
-Continuous Delivery book](https://bit.ly/CD-Buch-Amzn) .
+Continuous Delivery book](http://continuous-delivery-buch.de) .
 
 The application is written in Java and uses Spring Boot. To compile
 and execute all tests:

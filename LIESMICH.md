@@ -5,7 +5,7 @@ Diese ist ein einfaches Beispiel für die grundlegenden technischen
 Features einer Anwendung, die in einer Continuous-Delivery-Pipeline
 laufen soll. Es ist eine Basis für eigene Experimente. Es dient als
 Beispiel für das
-[Continuous Delivery Buch](https://bit.ly/CD-Buch-Amzn) .
+[Continuous Delivery Buch](http://continuous-delivery-buch.de) .
 
 Die Anwendung ist in Java geschrieben und nutzt Spring Boot. Um sie zu
 kompilieren und alle Tests auszuführen:
