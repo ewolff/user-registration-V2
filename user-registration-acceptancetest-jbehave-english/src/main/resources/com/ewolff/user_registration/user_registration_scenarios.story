@@ -1,5 +1,5 @@
 Narrative:
-To use the wbsite
+In order to use the wbsite
 As a customer
 I want to register
 So that I can login
