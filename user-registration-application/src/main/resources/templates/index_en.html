@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>User Registration</title>
+</head>
+<body>
+	<h1 layout:fragment="header">User Registration</h1>
+	<div layout:fragment="content" class="container">
+
+		<p>
+			<a th:href="@{/user_en}">Register User</a>
+		</p>
+
+		<h1>Search User</h1>
+		<p>
+		<form id="userForm" th:action="@{/usersearch_en}" action="#"
+			method="GET">
+			<label>EMail</label> <input type="text" name="email" />
+			<div class="form-actions">
+				<input type="submit" value="Search user" />
+			</div>
+		</form>
+		</p>
+
+	</div>
+</body>
+</html>

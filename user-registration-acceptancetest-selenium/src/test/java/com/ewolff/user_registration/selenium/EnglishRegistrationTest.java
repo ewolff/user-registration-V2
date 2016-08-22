@@ -21,7 +21,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import com.ewolff.user_registration.RegistrationApplication;
 
-public class RegisterierungTest {
+public class EnglishRegistrationTest {
 	private WebDriver driver;
 	private String baseUrl;
 
@@ -33,7 +33,6 @@ public class RegisterierungTest {
 		}
 	}
 
-
 	@Before
 	public void setUp() throws Exception {
 		baseUrl = "http://localhost:8080/";
@@ -42,70 +41,72 @@ public class RegisterierungTest {
 	}
 
 	@Test
-	public void testAnlegenLoeschen() throws Exception {
-		kundeExistiertNicht();
-		kundeAnlegenTestCase();
-		kundeAnlegenNochEinmal();
-		kundeExistiert();
-		kundeLoeschen();
-		kundeExistiertNicht();
+	public void testRegisterDelete() throws Exception {
+		userDoesNotExist();
+		registerUserTestCase();
+		registerUserAgain();
+		userExists();
+		deleteUser();
+		userDoesNotExist();
 	}
 
 	@Test
-	public void testInvalideEMail() throws Exception {
-		kundeAnlegen("HURZ!");
-		assertTrue(driver.findElement(By.cssSelector(".alert.alert-error")).getText()
-				.matches("^[\\s\\S]*nicht[\\s\\S]*valide[\\s\\S]*$"));
+	public void testInvalidEMail() throws Exception {
+		registerUser("HURZ!");
+		assertTrue(driver.findElement(By.cssSelector(".alert.alert-error"))
+				.getText().matches("^[\\s\\S]*not[\\s\\S]*valid[\\s\\S]*$"));
 	}
 
-	public void kundeLoeschen() throws Exception {
-		driver.get(baseUrl + "/");
+	public void deleteUser() throws Exception {
+		driver.get(baseUrl + "/en");
 		driver.findElement(By.name("email")).clear();
-		driver.findElement(By.name("email")).sendKeys("eberhard.wolff@gmail.com");
+		driver.findElement(By.name("email")).sendKeys(
+				"eberhard.wolff+en@gmail.com");
 		driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
 		driver.findElement(By.cssSelector("input.btn.btn-link")).click();
 	}
 
-	public void kundeExistiertNicht() throws Exception {
-		kundeSuchen();
-		assertTrue(driver.findElement(By.cssSelector(".container>.container")).getText()
-				.matches("^[\\s\\S]*Kein[\\s\\S]*Kunde[\\s\\S]*$"));
+	public void userDoesNotExist() throws Exception {
+		searchUser();
+		assertTrue(driver.findElement(By.cssSelector(".container>.container"))
+				.getText().matches("^[\\s\\S]*No[\\s\\S]*user[\\s\\S]*$"));
 
 	}
 
-	public void kundeExistiert() throws Exception {
-		kundeSuchen();
+	public void userExists() throws Exception {
+		searchUser();
 		List<WebElement> divs = driver.findElements(By.cssSelector("div"));
 		boolean found = false;
 		for (WebElement div : divs) {
-			if (div.getText().matches("^[\\s\\S]*Vorname[\\s\\S]*$")) {
+			if (div.getText().matches("^[\\s\\S]*Firstname[\\s\\S]*$")) {
 				found = true;
 			}
 		}
 		assertTrue(found);
 	}
 
-	private void kundeSuchen() {
-		driver.get(baseUrl + "/");
+	private void searchUser() {
+		driver.get(baseUrl + "/en");
 		driver.findElement(By.name("email")).clear();
-		driver.findElement(By.name("email")).sendKeys("eberhard.wolff@gmail.com");
+		driver.findElement(By.name("email")).sendKeys(
+				"eberhard.wolff+en@gmail.com");
 		driver.findElement(By.cssSelector("input[type=\"submit\"]")).click();
 	}
 
-	public void kundeAnlegenTestCase() throws Exception {
-		kundeAnlegen("eberhard.wolff@gmail.com");
+	public void registerUserTestCase() throws Exception {
+		registerUser("eberhard.wolff+en@gmail.com");
 		assertTrue(isElementPresent(By.cssSelector("input.btn.btn-link")));
 	}
 
-	public void kundeAnlegenNochEinmal() throws Exception {
-		kundeAnlegen("eberhard.wolff@gmail.com");
-		assertTrue(driver.findElement(By.cssSelector(".alert.alert-error")).getText()
-				.matches("^[\\s\\S]*schon verwendet[\\s\\S]*$"));
+	public void registerUserAgain() throws Exception {
+		registerUser("eberhard.wolff+en@gmail.com");
+		assertTrue(driver.findElement(By.cssSelector(".alert.alert-error"))
+				.getText().matches("^[\\s\\S]*already in use[\\s\\S]*$"));
 	}
 
-	private void kundeAnlegen(String email) {
-		driver.get(baseUrl + "/");
-		driver.findElement(By.linkText("Kunde registrieren")).click();
+	private void registerUser(String email) {
+		driver.get(baseUrl + "/en");
+		driver.findElement(By.linkText("Register User")).click();
 		driver.findElement(By.id("firstname")).clear();
 		driver.findElement(By.id("firstname")).sendKeys("Eberhard");
 		driver.findElement(By.id("name")).clear();

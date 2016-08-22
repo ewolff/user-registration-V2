@@ -17,69 +17,69 @@ import com.ewolff.user_registration.domain.User;
 import com.ewolff.user_registration.service.RegistrationService;
 
 @Controller
-public class RegistrationController {
+public class EnglishRegistrationController {
 
-	private Log log = LogFactory.getLog(RegistrationController.class);
+	private Log log = LogFactory.getLog(EnglishRegistrationController.class);
 
 	@Autowired
-	private RegistrationController(RegistrationService registrationService) {
+	private EnglishRegistrationController(RegistrationService registrationService) {
 		this.registrationService = registrationService;
 	}
 
 	private RegistrationService registrationService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String homepage() {
-		return "index";
+	@RequestMapping(value = "/en", method = RequestMethod.GET)
+	public String homepage_en() {
+		return "index_en";
 	}
 	
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	@RequestMapping(value = "/user_en", method = RequestMethod.GET)
 	public ModelAndView createForm() {
-		return new ModelAndView("user/form", "user", new User("", "", ""));
+		return new ModelAndView("user/form_en", "user", new User("", "", ""));
 	}
 
-	@RequestMapping(value = "/usersearch", method = RequestMethod.GET)
-	public ModelAndView suche(@RequestParam("email") String email) {
+	@RequestMapping(value = "/usersearch_en", method = RequestMethod.GET)
+	public ModelAndView search(@RequestParam("email") String email) {
 		User user = registrationService.getByEMail(email);
 		if (user != null) {
-			return new ModelAndView("user/display", "user", user);
+			return new ModelAndView("user/display_en", "user", user);
 		} else {
-			return new ModelAndView("user/not-found");
+			return new ModelAndView("user/not-found_en");
 		}
 	}
 
-	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	@RequestMapping(value = "/user_en", method = RequestMethod.POST)
 	public ModelAndView create(@ModelAttribute User user,
 			BindingResult bindingResult, RedirectAttributes redirect) {
 		if (!registrationService.validEMailAdress(user.getEmail())) {
-			log.info(String.format("email=%s nicht valide", user.getEmail()));
+			log.info(String.format("email=%s not valid", user.getEmail()));
 			bindingResult.addError(new FieldError("user", "email",
-					"EMail Adresse nicht valide"));
+					"email adress not valid"));
 		} else {
 			boolean registrationResult = registrationService.register(user);
 			if (!registrationResult) {
 				log.info(String
-						.format("email=%s konnte nicht registriert werden - EMail Adresse schon verwendet?",
+						.format("email=%s could not be registered - email adress already in use?",
 								user.getEmail()));
 				bindingResult
 						.addError(new FieldError("user", "email",
-								"User konnte nicht registriert werden - EMail Adresse schon verwendet?"));
+								"User could not be registered - email adress already in use?"));
 			}
 		}
 		if (bindingResult.hasErrors()) {
 			log.info(String.format(
-					"email=%s hatte Fehler - Formular neu anzeigen",
+					"email=%s had errors - display form again",
 					user.getEmail()));
-			return new ModelAndView("user/form", "user", user);
+			return new ModelAndView("user/form_en", "user", user);
 		} else {
-			return new ModelAndView("user/display", "user", user);
+			return new ModelAndView("user/display_en", "user", user);
 		}
 	}
 
-	@RequestMapping(value = "/userdelete", method = RequestMethod.POST)
+	@RequestMapping(value = "/userdelete_en", method = RequestMethod.POST)
 	public String delete(@RequestParam("email") String email) {
 		registrationService.unregister(email);
-		return "index";
+		return "index_en";
 	}
 
 }
