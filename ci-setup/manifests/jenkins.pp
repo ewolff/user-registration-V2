@@ -8,7 +8,7 @@ class { 'jenkins' :
 
 # install a bunch of useful plugins
 $plugins = [
-  'credentials',
+  '::credentials',
   'ssh-credentials',
   'git-client',
   'scm-api',
