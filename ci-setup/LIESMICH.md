@@ -14,3 +14,8 @@ Anschliessend sind die folgenden Komponenten verfügbar:
 * Jenkins ->     localhost:9191
 * Artifactory -> localhost:9292
 * SonarQube ->   localhost:9393
+
+Achtung: Durch Änderungen in Version 2 von Jenkins ist Security standardmässig aktiviert und du musst das initiale
+Passwort für den Nutzer admin im Jenkins Home Verzeichnis auf der Vagrant-Box nachschlagen. Um das zu tun, führe 'vagrant ssh' aus und 
+wechsle innerhalb der Box mit 'sudo su - jenkins' zum Jenkins Nutzer. Das Passwort kannst du dir dann mit 
+'cat /var/lib/jenkins/secrets/initialAdminPassword' anzeigen lassen.

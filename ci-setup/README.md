@@ -13,3 +13,7 @@ Afterwards, the following components are available:
 * Jenkins ->     localhost:9191
 * Artifactory -> localhost:9292
 * SonarQube ->   localhost:9393
+
+Note: Due to changes since version 2 of Jenkins, security is enabled by default und you need to look up the initial admin 
+password in the Jenkins home directory. To do so, run 'vagrant ssh' and inside the box, become the jenkins user via 
+'sudo su - jenkins' and run 'cat /var/lib/jenkins/secrets/initialAdminPassword' to see the password.
