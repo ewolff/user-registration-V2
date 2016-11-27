@@ -1,7 +1,7 @@
 Sample Java Project with Chef
 =============================
 
-[German / Deutsch](LIESMICH.md)
+[English / Englisch](README.md)
 
 Dieses Beispiel zeigt, wie Chef genutzt werden kann, um eine Java-Umgebung zu konfigurieren.
 
