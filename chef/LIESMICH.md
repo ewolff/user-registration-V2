@@ -1,6 +1,8 @@
 Java-Beispiel mit Chef
 =============================
 
+[English / Englisch](README.md)
+
 Dieses Beispiel zeigt, wie Chef genutzt werden kann, um eine Java-Umgebung zu konfigurieren.
 
 Das Vagrantfile kann genutzt werden, um eine Java-Anwendung in einer
@@ -30,4 +32,6 @@ Um es zu benutzen:
 * Jetzt kannst Du mit  `knife ec2 server create -r
   'role[tomcatserver]' --identity-file ~/.ssh/<schluessel>.pem`
   einen neuen Server installieren
+
+Die Anwendung steht unter http://localhost:18080/demo/ bereit.
 

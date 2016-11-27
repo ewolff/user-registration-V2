@@ -31,3 +31,6 @@ To use it:
 * Upload the role with `knife role from file roles/tomcatserver.json`
 * Now create a new server with   `knife ec2 server create -r
   'role[tomcatserver]' --identity-file ~/.ssh/<your-key>.pem`
+
+The application can be accessed at http://localhost:18080/demo/ .
+
