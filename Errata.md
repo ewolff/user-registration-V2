@@ -8,7 +8,7 @@ Kapitel 2 Continuous Delivery: Was und wie?
 
 ### 2.3 Werte von  Continuous Delivery
 
-Buch, p. 16: Regression
+Buch, p. 16, Abschnitt Regression:
 ... Sollte ein Fehler es dennoch
 bis in die Produktion schaffe, so kann er immer noch durch...
 
@@ -21,7 +21,7 @@ Kapitel 3 Infrastruktur bereitstellen
 
 ### 3.11 Links & Literatur
 
-Buch, p. 83: Link [2]
+Buch, p. 83:
 [2] http://community.opscode.com/cookbooks
 
 Ist umgezogen auf:
