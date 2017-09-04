@@ -7,7 +7,7 @@ This project creates a VM with the application in a Docker container
 and a separate Docker container for Graphite. Graphite can be used as
 a monitoring tool for the application.
 
-#Vagrant
+# Vagrant
 
 Vagrant starts a VM, installs Docker and then runs the Docker
 Container on the VM.
@@ -29,7 +29,7 @@ The result should be:
 - Graphite's port to add data to the monitoring is also exposed at
 2003
 
-#Docker Machine
+# Docker Machine
 
 Docker Machine installs Docker on a VM. Then other tools like Docker
 Compose can use Docker as if it was running on a local machine.
