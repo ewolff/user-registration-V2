@@ -9,6 +9,5 @@ Diese Tests sind in Deutsch. Die englischen Tests finden sich unter
 
 Zum ausführen:
 
-- Maven installieren
-- Führe `mvn integration-test` in diesem Unterverzeichnis aus.
-- Die Ergebnisse der Tests finden sich im Verzeichnis `target/jbehave`
+- Führe `./mvnw integration-test` (macOS, Linux) oder `./mvnw.cmd integration-test` (Windows) in diesem Unterverzeichnis aus.
+- Die Ergebnisse der Tests finden sich im Verzeichnis `target/jbehave`.

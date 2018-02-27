@@ -7,4 +7,4 @@ für die Tests findet sich im Verzeichnis `src/test/java` .
 Zum Ausführen:
 
 - Installiere Maven
-- Führe `mvn test` in diesem Verzeichnis aus
+- Führe `./mvnw test` (macOS, Linux) oder `./mvnw.cmd test` (Windows) in diesem Verzeichnis aus

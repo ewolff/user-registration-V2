@@ -8,6 +8,5 @@ This project contains capacity tests with Gatling. Look at
 
 To run:
 
-- Install Maven
-- Execute `mvn test` in this subdir
+- Execute  `./mvnw test` (macOS, Linux) or `./mvnw.cmd test` (Windows) in this subdir
 - Find the results in the subdir `target/gatling/results`

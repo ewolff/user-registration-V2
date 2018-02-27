@@ -8,5 +8,4 @@ This project contains acceptance tests with Selenium. Look at
 
 To run:
 
-- Install Maven
-- Execute `mvn test` in this subdir
+- Execute `./mvnw test` (macOS, Linux) or `./mvnw.cmd test` (Windows)  in this subdir

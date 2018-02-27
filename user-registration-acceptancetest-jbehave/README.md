@@ -12,6 +12,5 @@ version.
 
 To run:
 
-- Install Maven
-- Execute `mvn integration-test` in this subdir
+- Execute `./mvnw integration-test` (macOS, Linux) or `./mvnw.cmd integration-test` (Windows) in this subdir
 - Find the results in the subdir `target/jbehave`

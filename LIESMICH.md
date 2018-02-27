@@ -11,7 +11,7 @@ Die Anwendung ist in Java geschrieben und nutzt Spring Boot. Um sie zu
 kompilieren und alle Tests auszuführen:
 
 - Installiere Maven
-- Führe `mvn install` in diesem Verzeichnis aus.
+- Führe `./mvnw test` (macOS, Linux) oder `./mvnw.cmd test` (Windows) in diesem Verzeichnis aus.
 
 Als Teil der Maven-Builds werden die folgenden Projekte gebaut:
 

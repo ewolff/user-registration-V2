@@ -12,8 +12,7 @@ Continuous Delivery book](http://continuous-delivery-buch.de) .
 The application is written in Java and uses Spring Boot. To compile
 and execute all tests:
 
-- Install Maven
-- Execute `mvn install` in this directory.
+- Execute `./mvnw install` (macOS, Linux) or `./mvnw.cmd install` (Windows) in this directory.
 
 At least some parts of the code are in German - sorry about that.
 
