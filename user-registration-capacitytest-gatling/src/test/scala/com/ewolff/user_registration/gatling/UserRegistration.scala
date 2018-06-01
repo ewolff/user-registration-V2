@@ -25,7 +25,7 @@ class UserRegistration extends Simulation {
     .acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
     .acceptEncodingHeader("gzip, deflate")
     .acceptLanguageHeader("en,en-us;q=0.5")
-    .connection("keep-alive")
+    .connectionHeader("keep-alive")
     .header("Cache-Control", "max-age=0")
 
 

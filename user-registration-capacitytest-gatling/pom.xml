@@ -4,7 +4,10 @@
 	<artifactId>user-registration-capacitytest-gatling</artifactId>
 
 	<properties>
-		<gatling.version>2.1.7</gatling.version>
+	  <gatling.version>2.3.1</gatling.version>
+	  <maven.compiler.source>1.8</maven.compiler.source>
+	  <maven.compiler.target>1.8</maven.compiler.target>
+	  <gatling-plugin.version>2.2.4</gatling-plugin.version>
 	</properties>
 
 	<parent>
@@ -29,35 +32,19 @@
 		</dependency>
 	</dependencies>
 
-	<repositories>
-		<repository>
-			<id>excilys</id>
-			<name>Excilys Repository</name>
-			<url>http://repository.excilys.com/content/groups/public</url>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>excilys</id>
-			<name>Excilys Repository</name>
-			<url>http://repository.excilys.com/content/groups/public</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>io.gatling</groupId>
 				<artifactId>gatling-maven-plugin</artifactId>
-				<version>${gatling.version}</version>
+				<version>${gatling-plugin.version}</version>
 				<executions>
-					<execution>
-					  <phase>test</phase>
-						<goals>
-							<goal>execute</goal>
-						</goals>
-					</execution>
+                                  <execution>
+                                    <phase>test</phase>
+                                    <goals>
+                                      <goal>integration-test</goal>
+                                    </goals>
+                                  </execution>
 				</executions>
 			</plugin>
 		</plugins>
