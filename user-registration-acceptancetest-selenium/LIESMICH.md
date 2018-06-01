@@ -8,3 +8,8 @@ Zum Ausführen:
 
 - Installiere Maven
 - Führe `./mvnw test` (macOS, Linux) oder `./mvnw.cmd test` (Windows) in diesem Verzeichnis aus
+
+
+Das Verzeichnis `Selenium-IDE-V3` enthält Tests für die aktuelle Version
+der [Selenium IDE](https://www.seleniumhq.org/projects/ide/). Das
+Verzeichnis `Selenium` enthält Tests für die alte Version der Selenium IDE.
