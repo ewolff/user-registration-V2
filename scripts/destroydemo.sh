@@ -11,3 +11,6 @@ cd ..
 cd shell
 vagrant destroy -f
 cd ..
+cd ci-setup
+vagrant destroy -f
+cd ..

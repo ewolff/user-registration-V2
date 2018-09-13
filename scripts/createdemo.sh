@@ -15,3 +15,7 @@ cd shell
 vagrant up
 vagrant halt
 cd ..
+cd ci-setup
+vagrant up
+vagrant halt
+cd ..
