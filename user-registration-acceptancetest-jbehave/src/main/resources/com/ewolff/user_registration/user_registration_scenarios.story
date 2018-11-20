@@ -31,9 +31,3 @@ Gegeben ein neuer Kunde mit EMail eberhard.wolff@gmail.com Vorname Eberhard Name
 Wenn der Kunde sich registriert
 Und der Kunde dann geloescht wird
 Dann sollte kein Kunde mit der EMail eberhard.wolff@gmail.com existieren
-
-Szenario: Kunden aus Berlin duerfen sich nicht registrieren
-
-Gegeben ein neuer Kunde aus Berlin mit EMail eberhard.wolff@gmail.com Vorname Eberhard Name Wolff
-Wenn der Kunde sich registriert
-Dann soll es einen Fehler geben
