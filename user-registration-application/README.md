@@ -10,3 +10,7 @@ The application itself just contains functionality to register users. Users are 
 - ...or you can deploy the WAR into a Servlet 3.0 compatible container such as Tomcat
 
 The application uses Spring Boot. For the web interface Thymeleafe templates are used.
+
+The application can only be built if `mvn install` was run at least
+once in the directory `user-registration-V2` to copy the parent POM
+into the local Maven repo.
