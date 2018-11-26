@@ -10,18 +10,10 @@ import com.ewolff.user_registration.RegistrationApplication
 
 class UserRegistration extends Simulation {
 
-  val emailFeeder = new Feeder[String] {
-
-    override def hasNext = true
-
-    override def next: Map[String, String] = {
-      val email = scala.math.abs(java.util.UUID.randomUUID.getMostSignificantBits) + "_gatling@dontsend.com"
-      Map("email" -> email)
-    }
-  }
+  val emailFeeder = Iterator.continually(Map("email" -> (scala.math.abs(java.util.UUID.randomUUID.getMostSignificantBits) + "_gatling@dontsend.com")))
 
   val httpProtocol = http
-    .baseURL("http://127.0.0.1:8080")
+    .baseUrl("http://127.0.0.1:8080")
     .acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
     .acceptEncodingHeader("gzip, deflate")
     .acceptLanguageHeader("en,en-us;q=0.5")
@@ -59,5 +51,5 @@ class UserRegistration extends Simulation {
     }
 
   SpringApplication.run(classOf[RegistrationApplication])
-  setUp(scn.inject(rampUsers(5) over (10 seconds))).protocols(httpProtocol)
+  setUp(scn.inject(rampUsers(5) during (10 seconds))).protocols(httpProtocol)
 }

@@ -4,10 +4,10 @@
 	<artifactId>user-registration-capacitytest-gatling</artifactId>
 
 	<properties>
-	  <gatling.version>2.3.1</gatling.version>
+	  <gatling.version>3.0.1.1</gatling.version>
 	  <maven.compiler.source>1.8</maven.compiler.source>
 	  <maven.compiler.target>1.8</maven.compiler.target>
-	  <gatling-plugin.version>2.2.4</gatling-plugin.version>
+	  <gatling-plugin.version>3.0.1</gatling-plugin.version>
 	</properties>
 
 	<parent>
@@ -42,7 +42,7 @@
                                   <execution>
                                     <phase>test</phase>
                                     <goals>
-                                      <goal>integration-test</goal>
+                                      <goal>test</goal>
                                     </goals>
                                   </execution>
 				</executions>
