@@ -21,7 +21,7 @@ local.properties
 .vagrant
 .settings/
 .loadpath
-
+.vscode
 # External tool builders
 .externalToolBuilders/
 
