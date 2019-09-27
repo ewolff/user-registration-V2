@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  test-client:
+    depends_on: [user-registration]
+    build:
+      context: .
+    environment:
+      endpoint: user-registration:8080
+    volumes:
+      - .:/test
+    command: ["/bin/sh", "-xec", "/test/tests.sh"]
+
+  user-registration:
+    image: ${image:?please set $image variable to the user-registration docker image that should be tested}
+    expose: [8080]
