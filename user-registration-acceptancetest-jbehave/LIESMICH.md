@@ -9,5 +9,7 @@ Diese Tests sind in Deutsch. Die englischen Tests finden sich unter
 
 Zum ausführen:
 
+- Führe `./mvnw -pl user-registration-application -am install` im
+  Verzeichnis `user-registration-V2` aus.
 - Führe `./mvnw integration-test` (macOS, Linux) oder `./mvnw.cmd integration-test` (Windows) in diesem Unterverzeichnis aus.
 - Die Ergebnisse der Tests finden sich im Verzeichnis `target/jbehave`.

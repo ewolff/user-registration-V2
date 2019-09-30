@@ -13,6 +13,7 @@ Die Anwendung nutzt Spring Boot. Für das Web Interface werd
 Thymeleaf-Templates genutzt.
 
 Die Anwendung kann nur gebaut werden, wenn man im Verzeichnis
-`user-registration-V2` mindestens einmal einen Build mit `mvn
-install`gestartet hat, da nur dann das Parent POM in das lokale Maven
+`user-registration-V2` das Kommando `./mvnw -pl
+user-registration-application -am install` ausführt,
+da nur dann das Parent POM in das lokale Maven
 Repository kopiert wird.

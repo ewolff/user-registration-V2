@@ -8,6 +8,8 @@ This project contains acceptance tests with Selenium. Look at
 
 To run:
 
+- Execute `./mvnw -pl user-registration-application -am install` in
+  the directory `user-registration-V2`.
 - Execute `./mvnw test` (macOS, Linux) or `./mvnw.cmd test` (Windows)
 in this subdir
 

@@ -11,6 +11,7 @@ The application itself just contains functionality to register users. Users are 
 
 The application uses Spring Boot. For the web interface Thymeleafe templates are used.
 
-The application can only be built if `mvn install` was run at least
-once in the directory `user-registration-V2` to copy the parent POM
-into the local Maven repo.
+The application can only be built if `./mvnw -pl
+user-registration-application -am install` is run in the directory
+`user-registration-V2` to copy the parent POM into the local Maven
+repo.

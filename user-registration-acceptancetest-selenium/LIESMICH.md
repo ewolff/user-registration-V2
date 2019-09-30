@@ -6,7 +6,8 @@ für die Tests findet sich im Verzeichnis `src/test/java` .
 
 Zum Ausführen:
 
-- Installiere Maven
+- Führe `./mvnw -pl user-registration-application -am install` im
+  Verzeichnis `user-registration-V2` aus.
 - Führe `./mvnw test` (macOS, Linux) oder `./mvnw.cmd test` (Windows) in diesem Verzeichnis aus
 
 

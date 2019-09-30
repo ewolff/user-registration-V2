@@ -6,6 +6,7 @@ Test findet sich in `src/test/scala` .
 
 Zum ausführen:
 
-- Installiere Maven
+- Führe `./mvnw -pl user-registration-application -am install` im
+  Verzeichnis `user-registration-V2` aus.
 - Führe  `./mvnw test` (macOS, Linux) or `./mvnw.cmd test` (Windows) in diesem Unterverzeichnis aus.
 - Die Ergebniss finden sich im Unterverzeichnis `target/gatling/results`
