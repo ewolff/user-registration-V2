@@ -19,6 +19,11 @@ bis in die Produktion schaffen, so kann er immer noch durch...
 Kapitel 3 Infrastruktur bereitstellen
 -----------------
 
+### 3.3.2
+
+Ubuntu 15.04 hat leider kein Chef-Paket mehr. Daher sollte Ubuntu
+16.04 genutzt werden.
+
 ### 3.11 Links & Literatur
 
 Buch, p. 83:
