@@ -12,6 +12,7 @@ Vagrant.configure(2) do |config|
     chef.cookbooks_path = ["cookbooks"]
     chef.roles_path=["roles"]
     chef.add_role("tomcatserver")
+    chef.arguments = "--chef-license accept"
   end
 
 end
