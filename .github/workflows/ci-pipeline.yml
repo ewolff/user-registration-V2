@@ -1,0 +1,74 @@
+name: user-registration-application-pipeline
+
+on: [push]
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v1
+
+    - name: setup java
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11'
+
+    # there is no way of setting job-scope env vars ... so we work around with files
+    - name: create variables
+      run: |
+        mkdir ${GITHUB_WORKSPACE}/.vars
+        echo "$(date -Iseconds|tr 'T:' '-'|cut -f1 -d+)" > ${GITHUB_WORKSPACE}/.vars/version
+        echo "kesselborntests/user-registration" > ${GITHUB_WORKSPACE}/.vars/repo_name
+
+    - name: Commit
+      run: ./mvnw -pl user-registration-application -am install
+
+    - name: Akzeptanztests JBehave
+      run: |
+        cd user-registration-acceptancetest-jbehave
+        ./mvnw integration-test
+
+    - name: Akzeptanztests Selenium
+      run: |
+        cd user-registration-acceptancetest-selenium
+        ./mvnw test
+
+    - name: Kapazitätstests
+      run: |
+        cd user-registration-capacitytest-gatling
+        ./mvnw test
+
+    - name: Baue Docker-Image
+      uses: docker://docker:dind
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      with:
+        entrypoint: /bin/sh
+        args: |
+          -xec "
+          docker login --username \"${DOCKER_USERNAME}\" --password \"${DOCKER_PASSWORD}\"
+          repo=$(cat ${GITHUB_WORKSPACE}/.vars/repo_name):$(cat ${GITHUB_WORKSPACE}/.vars/version)
+
+          docker build -t ${repo} .
+          docker push ${repo}"
+
+    - name: Integration Test
+      run: |
+        repo_name=kesselborntests/user-registration
+        cd user-registration-integrationtest
+        image=$(cat ${GITHUB_WORKSPACE}/.vars/repo_name):$(cat ${GITHUB_WORKSPACE}/.vars/version) docker-compose run test-client
+
+    - name: Slack Notification
+      uses: homoluctus/slatify@master
+      if: always()
+      with:
+        type: ${{ job.status }}
+        job_name: 'pipeline'
+        mention: 'here'
+        mention_if: 'failure'
+        icon_emoji: ':female-police-officer:'
+        channel: '#ci-notifications'
+        url: ${{ secrets.SLACK_WEBHOOK }}
