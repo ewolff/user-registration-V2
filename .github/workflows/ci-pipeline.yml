@@ -65,15 +65,3 @@ jobs:
         repo_name=kesselborntests/user-registration
         cd user-registration-integrationtest
         image=$(cat ${GITHUB_WORKSPACE}/.vars/repo_name):$(cat ${GITHUB_WORKSPACE}/.vars/version) docker-compose run test-client
-
-    - name: Slack Notification
-      uses: homoluctus/slatify@master
-      if: always()
-      with:
-        type: ${{ job.status }}
-        job_name: 'pipeline'
-        mention: 'here'
-        mention_if: 'failure'
-        icon_emoji: ':female-police-officer:'
-        channel: '#ci-notifications'
-        url: ${{ secrets.SLACK_WEBHOOK }}
