@@ -1,4 +1,4 @@
-name: user-registration-application-pipeline
+name: user-registration-capacity-tests
 
 on: [push]
 
