@@ -15,13 +15,6 @@ jobs:
       with:
         java-version: '11'
 
-    # there is no way of setting job-scope env vars ... so we work around with files
-    - name: create variables
-      run: |
-        mkdir ${GITHUB_WORKSPACE}/.vars
-        echo "$(date -Iseconds|tr 'T:' '-'|cut -f1 -d+)" > ${GITHUB_WORKSPACE}/.vars/version
-        echo "kesselborntests/user-registration" > ${GITHUB_WORKSPACE}/.vars/repo_name
-
     - name: Install application
       run: ./mvnw -pl user-registration-application -am install
 
@@ -45,23 +38,17 @@ jobs:
         cd user-registration-capacitytest-gatling
         ./mvnw test
 
-    - name: Baue Docker-Image
-      uses: docker://docker:dind
-      env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      with:
-        entrypoint: /bin/sh
-        args: |
-          -xec "
-          docker login --username \"${DOCKER_USERNAME}\" --password \"${DOCKER_PASSWORD}\"
-          repo=$(cat ${GITHUB_WORKSPACE}/.vars/repo_name):$(cat ${GITHUB_WORKSPACE}/.vars/version)
+    - name: Build Docker Image for Java
+      run: |
+        cd docker
+	docker build -t java java && docker build -t user-registration user-registration
 
-          docker build -t ${repo} .
-          docker push ${repo}"
+    - name: Build Docker Image for User Registration
+      run: |
+        cd docker
+	docker build -t user-registration user-registration
 
     - name: Integration Test
       run: |
-        repo_name=kesselborntests/user-registration
         cd user-registration-integrationtest
-        image=$(cat ${GITHUB_WORKSPACE}/.vars/repo_name):$(cat ${GITHUB_WORKSPACE}/.vars/version) docker-compose run test-client
+        image=user-registration docker-compose run test-client
