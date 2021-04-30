@@ -47,8 +47,7 @@ To run:
 - Change to this directory and run
   - `docker build -t java java`
   - `docker build -t user-registration user-registration`
-  - `docker run -p 8080:8080 user-registration docker run -p 8080:8080
-    -d user-registration`
+  - `docker run -p 8080:8080 user-registration`
 
 The result should be:
 
