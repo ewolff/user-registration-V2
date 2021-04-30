@@ -46,4 +46,4 @@ jobs:
     - name: Integration Test
       run: |
         cd user-registration-integrationtest
-        image=user-registration docker-compose run test-client
+        docker-compose run test-client

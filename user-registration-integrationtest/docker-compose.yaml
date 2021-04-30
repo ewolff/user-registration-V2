@@ -11,5 +11,5 @@ services:
     command: ["/bin/sh", "-xec", "/test/tests.sh"]
 
   user-registration:
-    image: ${image:?please set $image variable to the user-registration docker image that should be tested}
+    image: user-registration
     expose: [8080]
