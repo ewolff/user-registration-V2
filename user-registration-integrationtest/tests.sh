@@ -4,6 +4,8 @@ source ${CWD}/spec.sh
 
 : ${endpoint:=http://localhost:8080}
 
+echo $endpoint
+
 before_all() {
   echo "waiting for service to be available"
   for _ in $(seq 1 180)
