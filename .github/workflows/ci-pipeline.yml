@@ -33,11 +33,6 @@ jobs:
         cd user-registration-acceptancetest-selenium
         ./mvnw test
 
-    - name: Capacity Tests
-      run: |
-        cd user-registration-capacitytest-gatling
-        ./mvnw test
-
     - name: Build Docker Image for Java
       run: |
         cd docker
