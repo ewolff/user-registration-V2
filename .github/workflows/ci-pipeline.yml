@@ -36,7 +36,7 @@ jobs:
     - name: Build Docker Image for Java
       run: |
         cd docker
-        docker build -t java java && docker build -t user-registration user-registration
+        docker build -t java java
 
     - name: Build Docker Image for User Registration
       run: |
