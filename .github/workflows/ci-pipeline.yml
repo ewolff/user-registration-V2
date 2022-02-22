@@ -1,0 +1,49 @@
+name: user-registration-application-pipeline
+
+on: [push]
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v1
+
+    - name: setup java
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11'
+
+    - name: Install application
+      run: ./mvnw -pl user-registration-application -am install
+
+    - name: German Acceptance Tests JBehave
+      run: |
+        cd user-registration-acceptancetest-jbehave
+        ./mvnw integration-test
+
+    - name: English Acceptance Tests JBehave
+      run: |
+        cd user-registration-acceptancetest-jbehave-english
+        ./mvnw integration-test
+
+    - name: Acceptance Tests Selenium
+      run: |
+        cd user-registration-acceptancetest-selenium
+        ./mvnw test
+
+    - name: Build Docker Image for Java
+      run: |
+        cd docker
+        docker build -t java java
+
+    - name: Build Docker Image for User Registration
+      run: |
+        cd docker
+        docker build -t user-registration user-registration
+
+    - name: Integration Test
+      run: |
+        cd user-registration-integrationtest
+        docker-compose run test-client

@@ -7,7 +7,7 @@ This project creates a VM with the application in a Docker
 container.
 
 
-#Vagrant
+# Vagrant
 
 Vagrant starts a VM, installs Docker and then runs the Docker
 Container on the VM.
@@ -26,7 +26,7 @@ The result should be:
 - Docker is installed in the VM
 - You can access the application at http://localhost:8090/
 
-#Docker Machine
+# Docker Machine
 
 Docker Machine installs Docker on a VM. Then other tools like Docker
 Compose can use Docker as if it was running on a local machine.
@@ -44,11 +44,10 @@ To run:
     Powershell) /  `docker-machine.exe env --shell cmd dev` (Windows,
     cmd.exe). Now the docker tool will use the newly created virtual
     machine as environment.
-- Change to the directory this directory and run
+- Change to this directory and run
   - `docker build -t java java`
   - `docker build -t user-registration user-registration`
-  - `docker run -p 8080:8080 user-registration docker run -p 8080:8080
-    -d user-registration`
+  - `docker run -p 8080:8080 user-registration`
 
 The result should be:
 

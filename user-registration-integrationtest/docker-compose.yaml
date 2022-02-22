@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  test-client:
+    depends_on: [user-registration]
+    links:
+      - "user-registration"
+    build:
+      context: .
+    environment:
+      endpoint: user-registration:8080
+    volumes:
+      - .:/test
+    command: ["/bin/sh", "-xec", "/test/tests.sh"]
+
+  user-registration:
+    image: user-registration
+    expose: [8080]
