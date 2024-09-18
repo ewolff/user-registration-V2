@@ -1,6 +1,12 @@
 JBehave Akzeptanztests
 ================
 
+Hinweis: Dies funktioniert derzeit nur mit Java 8. Du kannst
+[SDKMAN!](https://sdkman.io/) verwenden, um mehrere Versionen von Java
+zu installieren. `sdk list java` zeigt installierbare Versionen von
+Java, `sdk install java` kannst Du eine installieren , und dann mit
+`sdk use java 8.0.382-tem` die Version in der aktuellen Shell nutzen.
+
 Dieses Projekt enthält JBehave-Akzeptanztest. Im Verzeichnis
 `src/main/resource` finden sich die Stories, die Teil des Tests sind.
 
